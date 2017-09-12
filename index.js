@@ -1,43 +1,112 @@
-import { NgModule } from "@angular/core";
-import { TranslateLoader, TranslateFakeLoader } from "./src/translate.loader";
-import { TranslateService } from "./src/translate.service";
-import { MissingTranslationHandler, FakeMissingTranslationHandler } from "./src/missing-translation-handler";
-import { TranslateParser, TranslateDefaultParser } from "./src/translate.parser";
-import { TranslateCompiler, TranslateFakeCompiler } from "./src/translate.compiler";
-import { TranslateDirective } from "./src/translate.directive";
-import { TranslatePipe } from "./src/translate.pipe";
-import { TranslateStore } from "./src/translate.store";
-import { USE_STORE } from "./src/translate.service";
-import { USE_DEFAULT_LANG } from "./src/translate.service";
-export * from "./src/translate.loader";
-export * from "./src/translate.service";
-export * from "./src/missing-translation-handler";
-export * from "./src/translate.parser";
-export * from "./src/translate.compiler";
-export * from "./src/translate.directive";
-export * from "./src/translate.pipe";
-var TranslateModule = (function () {
-    function TranslateModule() {
-    }
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.TranslateModule = undefined;
+
+var _translate = require("./src/translate.loader");
+
+Object.keys(_translate).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate[key];
+        }
+    });
+});
+
+var _translate2 = require("./src/translate.service");
+
+Object.keys(_translate2).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate2[key];
+        }
+    });
+});
+
+var _missingTranslationHandler = require("./src/missing-translation-handler");
+
+Object.keys(_missingTranslationHandler).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _missingTranslationHandler[key];
+        }
+    });
+});
+
+var _translate3 = require("./src/translate.parser");
+
+Object.keys(_translate3).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate3[key];
+        }
+    });
+});
+
+var _translate4 = require("./src/translate.compiler");
+
+Object.keys(_translate4).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate4[key];
+        }
+    });
+});
+
+var _translate5 = require("./src/translate.directive");
+
+Object.keys(_translate5).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate5[key];
+        }
+    });
+});
+
+var _translate6 = require("./src/translate.pipe");
+
+Object.keys(_translate6).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _translate6[key];
+        }
+    });
+});
+
+var _core = require("@angular/core");
+
+var _translate7 = require("./src/translate.store");
+
+var TranslateModule = function () {
+    function TranslateModule() {}
     /**
      * Use this method in your root module to provide the TranslateService
      * @param {TranslateModuleConfig} config
      * @returns {ModuleWithProviders}
      */
     TranslateModule.forRoot = function (config) {
-        if (config === void 0) { config = {}; }
+        if (config === void 0) {
+            config = {};
+        }
         return {
             ngModule: TranslateModule,
-            providers: [
-                config.loader || { provide: TranslateLoader, useClass: TranslateFakeLoader },
-                config.compiler || { provide: TranslateCompiler, useClass: TranslateFakeCompiler },
-                config.parser || { provide: TranslateParser, useClass: TranslateDefaultParser },
-                config.missingTranslationHandler || { provide: MissingTranslationHandler, useClass: FakeMissingTranslationHandler },
-                TranslateStore,
-                { provide: USE_STORE, useValue: config.isolate },
-                { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
-                TranslateService
-            ]
+            providers: [config.loader || { provide: _translate.TranslateLoader, useClass: _translate.TranslateFakeLoader }, config.compiler || { provide: _translate4.TranslateCompiler, useClass: _translate4.TranslateFakeCompiler }, config.parser || { provide: _translate3.TranslateParser, useClass: _translate3.TranslateDefaultParser }, config.missingTranslationHandler || { provide: _missingTranslationHandler.MissingTranslationHandler, useClass: _missingTranslationHandler.FakeMissingTranslationHandler }, _translate7.TranslateStore, { provide: _translate2.USE_STORE, useValue: config.isolate }, { provide: _translate2.USE_DEFAULT_LANG, useValue: config.useDefaultLang }, _translate2.TranslateService]
         };
     };
     /**
@@ -46,34 +115,23 @@ var TranslateModule = (function () {
      * @returns {ModuleWithProviders}
      */
     TranslateModule.forChild = function (config) {
-        if (config === void 0) { config = {}; }
+        if (config === void 0) {
+            config = {};
+        }
         return {
             ngModule: TranslateModule,
-            providers: [
-                config.loader || { provide: TranslateLoader, useClass: TranslateFakeLoader },
-                config.compiler || { provide: TranslateCompiler, useClass: TranslateFakeCompiler },
-                config.parser || { provide: TranslateParser, useClass: TranslateDefaultParser },
-                config.missingTranslationHandler || { provide: MissingTranslationHandler, useClass: FakeMissingTranslationHandler },
-                { provide: USE_STORE, useValue: config.isolate },
-                { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
-                TranslateService
-            ]
+            providers: [config.loader || { provide: _translate.TranslateLoader, useClass: _translate.TranslateFakeLoader }, config.compiler || { provide: _translate4.TranslateCompiler, useClass: _translate4.TranslateFakeCompiler }, config.parser || { provide: _translate3.TranslateParser, useClass: _translate3.TranslateDefaultParser }, config.missingTranslationHandler || { provide: _missingTranslationHandler.MissingTranslationHandler, useClass: _missingTranslationHandler.FakeMissingTranslationHandler }, { provide: _translate2.USE_STORE, useValue: config.isolate }, { provide: _translate2.USE_DEFAULT_LANG, useValue: config.useDefaultLang }, _translate2.TranslateService]
         };
     };
     return TranslateModule;
-}());
-export { TranslateModule };
-TranslateModule.decorators = [
-    { type: NgModule, args: [{
-                declarations: [
-                    TranslatePipe,
-                    TranslateDirective
-                ],
-                exports: [
-                    TranslatePipe,
-                    TranslateDirective
-                ]
-            },] },
-];
+}();
+exports.TranslateModule = TranslateModule;
+
+TranslateModule.decorators = [{ type: _core.NgModule, args: [{
+        declarations: [_translate6.TranslatePipe, _translate5.TranslateDirective],
+        exports: [_translate6.TranslatePipe, _translate5.TranslateDirective]
+    }] }];
 /** @nocollapse */
-TranslateModule.ctorParameters = function () { return []; };
+TranslateModule.ctorParameters = function () {
+    return [];
+};

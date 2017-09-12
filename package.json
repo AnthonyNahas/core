@@ -8,9 +8,11 @@
     "test-watch": "karma start --singleRun=false --autoWatch=true",
     "commit": "npm run prepublish && npm test && git-cz",
     "prepublish": "ngc && npm run build",
-    "build": "webpack && npm run compile",
+    "build": "webpack && npm run babel",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "compile": "babel src -d src --presets es2015"
+    "compile_index": "babel index.js -o index.js --presets es2015",
+    "compile_src": "babel src -d src --presets es2015",
+    "babel": "npm run compile_index && npm run compile_src"
   },
   "repository": {
     "type": "git",
