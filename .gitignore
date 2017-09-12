@@ -24,7 +24,7 @@ coverage
 #################
 ## JetBrains
 #################
-.idea
+
 .project
 .settings
 
