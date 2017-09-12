@@ -7,7 +7,9 @@ manifest.mf
 build.xml
 node_modules/*
 npm-debug.log
-*.js
+.github
+.idea
+#*.js // ps: just for now
 !config/*
 !karma.conf.js
 !webpack.config.js

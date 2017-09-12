@@ -1,5 +1,6 @@
 {
   "name": "@ngx-translate/core",
+  "version": "8.0.1",
   "description": "The internationalization (i18n) library for Angular 2+",
   "scripts": {
     "clean": "rimraf bundles coverage src/**/*.d.ts src/**/*.metadata.json src/**/*.js tests/**/*.d.ts tests/**/*.metadata.json tests/**/*.js index.d.ts index.metadata.json index.js",
@@ -7,8 +8,9 @@
     "test-watch": "karma start --singleRun=false --autoWatch=true",
     "commit": "npm run prepublish && npm test && git-cz",
     "prepublish": "ngc && npm run build",
-    "build": "webpack",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "build": "webpack && npm run compile",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "compile": "babel src -d src --presets es2015"
   },
   "repository": {
     "type": "git",
@@ -33,19 +35,23 @@
     "@angular/core": ">=4.0.0"
   },
   "devDependencies": {
-    "@angular/animations": "4.1.3",
-    "@angular/common": "4.1.3",
-    "@angular/compiler": "4.1.3",
-    "@angular/compiler-cli": "4.1.3",
-    "@angular/core": "4.1.3",
-    "@angular/platform-browser": "4.1.3",
-    "@angular/platform-browser-dynamic": "4.1.3",
-    "@angular/platform-server": "4.1.3",
-    "@angular/router": "4.1.3",
+    "@angular/animations": "4.3.6",
+    "@angular/common": "4.3.6",
+    "@angular/compiler": "4.3.6",
+    "@angular/compiler-cli": "4.3.6",
+    "@angular/core": "4.3.6",
+    "@angular/platform-browser": "4.3.6",
+    "@angular/platform-browser-dynamic": "4.3.6",
+    "@angular/platform-server": "4.3.6",
+    "@angular/router": "4.3.6",
     "@types/hammerjs": "2.0.34",
     "@types/jasmine": "2.5.47",
     "@types/node": "7.0.22",
     "awesome-typescript-loader": "3.1.3",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "clean-webpack-plugin": "0.1.16",
     "codelyzer": "3.0.1",
     "commitizen": "2.9.6",
